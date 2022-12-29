@@ -6,7 +6,7 @@ export const Login = (props) => {
 
   return (<div className="h-full w-full">
     <div className="flex justify-center h-32 bg-blue-800">
-      <div className="flex flex-col z-0 shadow-sm mt-20 bg-gray-50 h-max w-1/3 pb-10 pt-10 items-center rounded-md">
+      <div className="flex flex-col z-0 shadow-2xl mt-20 bg-gray-50 h-max w-1/3 pb-10 pt-10 items-center rounded-md">
         <img src={logo} alt="logo" className="h-24" />
         <h6 className="text-blue-800 m-6">Prison Management System</h6>
         <form className=" w-3/4">
