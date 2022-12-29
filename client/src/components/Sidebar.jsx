@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArticleOutlined, DashboardOutlined, Diversity2Outlined, DocumentScannerOutlined, QueryStatsOutlined, RecentActorsOutlined, SecurityOutlined, TransferWithinAStationOutlined } from "@mui/icons-material"
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 const FormalSidebar = () => {
 
     const links = [
@@ -28,12 +28,12 @@ const FormalSidebar = () => {
         },
         {
             name: 'Statistics',
-            path: '/stats',
+            path: '/statistics',
             icon: <QueryStatsOutlined />
         },
         {
             name: 'Visitor Details',
-            path: '/visitor-details',
+            path: '/visitor-list',
             icon: <TransferWithinAStationOutlined />
         },
         {
@@ -44,14 +44,19 @@ const FormalSidebar = () => {
     ]
 
     return (
-        <aside className="bg-gray-600 h-5/6 w-1/6 z-10 shadow-2xl">
+        <aside className="z-10 w-1/6 h-full bg-gray-600 shadow-2xl">
             <nav className="py-4">
-                <ul className="flex flex-col justify-center text-white font-medium">
+                <ul className="flex flex-col justify-center font-medium text-white">
                     {links.map((link, index) => (
                         <li key={index} 
-                            className="flex flex-row items-center px-6 py-2 m-2 text-xs hover:bg-gray-700 hover:cursor-pointer">
-                            <span className="mr-2">{link.icon}</span>
-                            {link.name}
+                            className="flex flex-row items-center m-2 text-xs">
+                            <NavLink 
+                                to={link.path}
+                                className="flex flex-row items-center w-full h-full px-6 py-2 rounded-xl hover:bg-gray-700 hover:cursor-pointer"
+                            >
+                                    <span className="mr-2">{link.icon}</span>
+                                    {link.name}
+                            </NavLink>
                         </li>
                     ))}
                 </ul>

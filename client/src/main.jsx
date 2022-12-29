@@ -6,20 +6,12 @@ import "@fontsource/roboto";
 
 import {
   RecoilRoot,
-  atom,
 } from 'recoil';
-
-const admin = atom(
-  {
-    key: 'admin',
-    default: false
-  },
-)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RecoilRoot>
-      <App admin={admin} />
+      <App />
     </RecoilRoot>
   </React.StrictMode>,
 )

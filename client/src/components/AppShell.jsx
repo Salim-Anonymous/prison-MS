@@ -17,7 +17,7 @@ const AppShell = ({children}) => {
                         <li>
                             <div className="flex flex-col items-center justify-center" >
                                 <img src={Logo} alt="logo" className="h-8" />
-                                <p className=" text-blue-800 text-xs">Police Management System</p>
+                                <p className=" text-blue-800 text-sm">Police Management System</p>
                             </div>
                         </li>
                         <li>
@@ -28,8 +28,12 @@ const AppShell = ({children}) => {
             </header>
             <PathStrip path={path}/>
         </div>
-        <FormalSidebar />
-        {children}
+        <div className="flex flex-row h-5/6 w-full">
+            <FormalSidebar />
+            <div className="h-full w-5/6">
+                {children}
+            </div>
+        </div>
     </div>;
 }
 
