@@ -44,7 +44,7 @@ const FormalSidebar = () => {
     ]
 
     return (
-        <aside className="bg-gray-600 h-5/6 w-1/6 z-10 shadow-2xl">
+        <aside className="bg-gray-600 h-5/6 w-[300px] z-10 shadow-2xl">
             <nav className="py-4">
                 <ul className="flex flex-col justify-center text-white font-medium">
                     {links.map((link, index) => (
