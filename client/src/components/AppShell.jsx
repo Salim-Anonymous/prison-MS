@@ -1,36 +1,22 @@
 import React from "react";
-import Logo from "../assets/logo.png";
 import PathStrip from "./LocationIndicator";
-import UserProfileOptionsMenu from "./ProfileDropDown";
 import { useState } from "react";
 import FormalSidebar from "./Sidebar";
+import Header from "./Header";
 
-const AppShell = ({children}) => {
+const AppShell = ({ children }) => {
 
-    const [path, setPath] = useState(['Dashboard', 'Users', 'User Details']);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+    const [path, setPath] = useState(window.location.pathname.split('/').filter((item) => item !== '/'));  
 
     return <div className="h-screen">
-        <div className="flex flex-col h-1/6">
-            <header className="bg-white h-full w-full ">
-                <nav>
-                    <ul className="flex justify-between items-center p-4">
-                        <li>
-                            <div className="flex flex-col items-center justify-center" >
-                                <img src={Logo} alt="logo" className="h-8" />
-                                <p className=" text-blue-800 text-sm">Police Management System</p>
-                            </div>
-                        </li>
-                        <li>
-                            <UserProfileOptionsMenu />
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <PathStrip path={path}/>
+        <div className="fixed top-0 z-10 flex flex-col justify-between w-full h-40 m-0 lg:h-28">
+            <Header setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen}/>
+            <PathStrip path={path} />
         </div>
-        <div className="flex flex-row h-5/6 w-full">
-            <FormalSidebar />
-            <div className="h-full w-5/6">
+        <div className="relative flex flex-row w-full h-auto top-28 lg:top-30">
+            <FormalSidebar setPath={setPath} setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen}/>
+            <div className="w-full h-full px-8 lg:w-5/6 lg:relative lg:left-44 xl:left-56 xl:p-4 xl:pt-2 xl:pl-8 2xl:left-[18%] ">
                 {children}
             </div>
         </div>

@@ -18,6 +18,12 @@ const router = createBrowserRouter(
             
         },
         {
+            path: "/pms",
+            element: <AppShell><Dashboard/></AppShell>,
+            errorElement: <div>404</div>
+            
+        },
+        {
             path: "/prison-act-2009",
             element: <AppShell><PrisonAct/></AppShell>,
             errorElement: <div>404</div>
