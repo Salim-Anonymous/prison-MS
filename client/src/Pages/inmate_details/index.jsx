@@ -63,12 +63,12 @@ export default function Inmates() {
               className="border-2 border-[#00437A] p-2 w-60 focus:outline-none"
             />
           </div>
-          <button className="text-white bg-[#00437A] p-2 mt-8 w-40 rounded-lg">
+          <button className="text-white bg-[#00437A] hover:bg-blue-700 p-2 mt-8 w-40 rounded-lg">
             Search
           </button>
           <p className="mt-4 mb-4 font-medium text-[#00437A]">OR</p>
           <button
-            className="text-white bg-[#00437A] p-2 w-40 mb-8 rounded-lg"
+            className="text-white bg-[#00437A] hover:bg-blue-700 p-2 w-40 mb-8 rounded-lg"
             onClick={() => {
               navigate("/inmate-details/add-new-inmate");
             }}

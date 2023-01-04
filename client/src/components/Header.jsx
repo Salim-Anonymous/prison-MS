@@ -8,9 +8,9 @@ const Header = ({ setSidebarOpen, sidebarOpen }) => {
         <ul className="flex items-center justify-between px-2 pt-4 m-0 md:pt-0">
           <li>
             <div className="flex flex-col items-center justify-center">
-              <img src={Logo} alt="logo" className="h-36 md:h-16 lg:h-12" />
-              <p className="text-xl text-[#00437A] md:text-xs ">
-                Police Management System
+              <img src={Logo} alt="logo" className="h-40 md:h-16 lg:h-12" />
+              <p className="text-xs text-[#00437A] md:text-xs ">
+                Prison Management System
               </p>
             </div>
           </li>

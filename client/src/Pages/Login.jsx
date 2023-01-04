@@ -48,7 +48,7 @@ export const Login = (props) => {
                 onClick={() => {
                   setAdminState(true);
                 }}
-                className="relative flex justify-center w-3/5 px-16 py-6 text-3xl font-medium text-white bg-[#00437A] border border-transparent sm:text-xl sm:w-2/5 sm:px-10 sm:py-3 group rounded-xl hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className="relative flex justify-center w-3/5 px-16 py-6 text-3xl font-medium text-white bg-[#00437A] border border-transparent sm:text-xl sm:w-2/5 sm:px-10 sm:py-3 group rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                   {/* <LockClosedIcon className="w-5 h-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" /> */}
