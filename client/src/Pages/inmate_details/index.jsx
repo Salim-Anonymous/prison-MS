@@ -1,16 +1,18 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Inmates() {
   const [searchTypeVisible, setSearchTypeVisible] = useState(false);
   const [selected, setSelected] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="h-full w-full">
       <div className="flex  justify-center items-center p-10 ">
         <div className="flex flex-col justify-center items-center  h-max w-1/2 shadow-2xl rounded-xl ">
-          <img src={logo} alt="logo" className="h-28 mt-7" />
+          <img src={logo} alt="logo" className="h-28 mt-7 " />
           <h1 className=" text-3xl mt-7 font-medium text-[#00437A]">
             Inmates Details
           </h1>
@@ -61,11 +63,16 @@ export default function Inmates() {
               className="border-2 border-[#00437A] p-2 w-60 focus:outline-none"
             />
           </div>
-          <button className="text-white bg-[#00437A] p-2 mt-8 w-40 rounded-lg">
+          <button className="text-white bg-[#00437A] hover:bg-blue-700 p-2 mt-8 w-40 rounded-lg">
             Search
           </button>
           <p className="mt-4 mb-4 font-medium text-[#00437A]">OR</p>
-          <button className="text-white bg-[#00437A] p-2 w-40 mb-8 rounded-lg">
+          <button
+            className="text-white bg-[#00437A] hover:bg-blue-700 p-2 w-40 mb-8 rounded-lg"
+            onClick={() => {
+              navigate("/inmate-details/add-new-inmate");
+            }}
+          >
             Add New Inmate
           </button>
         </div>

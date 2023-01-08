@@ -9,50 +9,85 @@ import UserList from "./Pages/user_list";
 import VisitorList from "./Pages/visitor_details";
 
 import AppShell from "./components/AppShell";
-const router = createBrowserRouter(
-    [
-        {
-            path: "/",
-            element: <AppShell><Dashboard/></AppShell>,
-            errorElement: <div>404</div>
-            
-        },
-        {
-            path: "/pms",
-            element: <AppShell><Dashboard/></AppShell>,
-            errorElement: <div>404</div>
-            
-        },
-        {
-            path: "/prison-act-2009",
-            element: <AppShell><PrisonAct/></AppShell>,
-            errorElement: <div>404</div>
-        },
-        {
-            path: "/inmate-details",
-            element: <AppShell><Inmate /></AppShell>,
-        },
-        {
-            path: "/prison-details",
-            element: <AppShell><PrisonDetails /></AppShell>,
-        },
-        {
-            path: "/statistics",
-            element: <AppShell><Statistics /></AppShell>,
-        },
-        {
-            path: "/user-list",
-            element: <AppShell><UserList /></AppShell>,
-        },
-        {
-            path: "/visitor-list",
-            element: <AppShell><VisitorList /></AppShell>,
-        },
-    ]
-)
+import AddNewInmate from "./Pages/inmate_details/AddNewInmate";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <AppShell>
+        <Dashboard />
+      </AppShell>
+    ),
+    errorElement: <div>404</div>,
+  },
+  {
+    path: "/pms",
+    element: (
+      <AppShell>
+        <Dashboard />
+      </AppShell>
+    ),
+    errorElement: <div>404</div>,
+  },
+  {
+    path: "/prison-act-2009",
+    element: (
+      <AppShell>
+        <PrisonAct />
+      </AppShell>
+    ),
+    errorElement: <div>404</div>,
+  },
+  {
+    path: "/inmate-details",
+    element: (
+      <AppShell>
+        <Inmate />
+      </AppShell>
+    ),
+  },
+  {
+    path: "/prison-details",
+    element: (
+      <AppShell>
+        <PrisonDetails />
+      </AppShell>
+    ),
+  },
+  {
+    path: "/statistics",
+    element: (
+      <AppShell>
+        <Statistics />
+      </AppShell>
+    ),
+  },
+  {
+    path: "/user-list",
+    element: (
+      <AppShell>
+        <UserList />
+      </AppShell>
+    ),
+  },
+  {
+    path: "/visitor-list",
+    element: (
+      <AppShell>
+        <VisitorList />
+      </AppShell>
+    ),
+  },
+  {
+    path: "/inmate-details/add-new-inmate",
+    element: (
+      <AppShell>
+        <AddNewInmate />
+      </AppShell>
+    ),
+  },
+]);
 
 export const Routes = () => {
-    return (
-        <RouterProvider router={router} />
-    );
-}
+  return <RouterProvider router={router} />;
+};
