@@ -22,10 +22,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //api routes
+app.use('/api',require('./routes/api'));
+//client side rendering routes
 app.use(express.static(path.join(__dirname, 'client','dist')));
 app.get('/pms',(req,res)=>{
   res.sendFile(path.join(__dirname,'client','dist','index.html'));
 })
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
