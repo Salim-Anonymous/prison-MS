@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import logo from "../../assets/logo.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,19 @@ export default function Inmates() {
   const [searchTypeVisible, setSearchTypeVisible] = useState(false);
   const [selected, setSelected] = useState("");
   const navigate = useNavigate();
+
+  const searchText = [ "CID NO", "Prison ID", "Name"];
+  // useref for the search input
+  const searchInput = useRef(null);
+  // search the searchInput value in api with fetch
+  const search = () => {
+    fetch("http://localhost:3000/api/inmates")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        console.log(selected.toString());
+      });
+  };
 
   return (
     <div className="h-full w-full">
@@ -18,7 +31,7 @@ export default function Inmates() {
           </h1>
           <div className="flex flex-row mt-8">
             <button
-              class="bg-transparent hover:bg-[#00437A] text-[#00437A] font-semibold hover:text-white p-2 border-2 border-[#00437A] hover:border-transparent w-40 "
+              className="bg-transparent hover:bg-[#00437A] text-[#00437A] font-semibold hover:text-white p-2 border-2 border-[#00437A] hover:border-transparent w-40 "
               onClick={() => {
                 setSearchTypeVisible(!searchTypeVisible);
               }}
@@ -28,42 +41,29 @@ export default function Inmates() {
             </button>
             {searchTypeVisible && (
               <div className="absolute  w-40 py-2 mt-12 bg-white rounded-md shadow-lg">
-                <option
-                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => {
-                    setSelected("CID NO");
-                    setSearchTypeVisible(false);
-                  }}
-                >
-                  CID NO
-                </option>
-                <option
-                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => {
-                    setSelected("Prison ID");
-                    setSearchTypeVisible(false);
-                  }}
-                >
-                  Prison ID
-                </option>
-                <option
-                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => {
-                    setSelected("Name");
-                    setSearchTypeVisible(false);
-                  }}
-                >
-                  Another option
-                </option>
+                {searchText.map((text) => (
+                  <option className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 cursor-pointer" 
+                    key={text+Math.random()}
+                    onClick={() => {
+                      setSelected(text)
+                      setSearchTypeVisible(false)
+                    }}>
+                    {text}
+                  </option>))
+                  }
               </div>
             )}
 
             <input
               placeholder={selected}
               className="border-2 border-[#00437A] p-2 w-60 focus:outline-none"
+              ref={searchInput}
             />
           </div>
-          <button className="text-white bg-[#00437A] hover:bg-blue-700 p-2 mt-8 w-40 rounded-lg">
+          <button
+            className="text-white bg-[#00437A] hover:bg-blue-700 p-2 mt-8 w-40 rounded-lg"
+            onClick={search}
+          >
             Search
           </button>
           <p className="mt-4 mb-4 font-medium text-[#00437A]">OR</p>
