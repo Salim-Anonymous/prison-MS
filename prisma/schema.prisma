@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,12 +7,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model SuperIntendent {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  deletedAt DateTime?
+model inmate{
+  name String
+  pid  String @id @default(uuid())
+  dob  DateTime
+  gender String
+  village String
+  gewog String
+  dzongkhag String
+  martialStatus String
+  nationality String
+  height Int
+  weight Int
+  complexion String
+  hairColor String
+  eyeColor String
+  crimes String
+  sentence Int
+  startdate DateTime
+  enddate DateTime
+  prison String
+  cell String
+}
+
+model visitor {
+  name String
+  visitNo String @id @default(uuid())
+  pname String
+  cid String
+  contact String
+  date DateTime @default(now())
 }
