@@ -22,7 +22,7 @@ const AppShell = ({ children }) => {
           setSidebarOpen={setSidebarOpen}
           sidebarOpen={sidebarOpen}
         />
-        <div className="w-full h-full px-8 lg:w-5/6 lg:relative lg:left-44 xl:left-56 xl:p-4 xl:pt-2 xl:pl-8 2xl:left-[18%] ">
+        <div className="w-full overflow-x-clip h-full px-8 lg:w-5/6 lg:relative lg:left-44 xl:left-56 xl:p-4 xl:pt-2 xl:pl-8 2xl:left-[18%] ">
           {children}
         </div>
       </div>
