@@ -7,34 +7,46 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model inmate{
-  name String
-  pid  String @id @default(uuid())
-  dob  DateTime
-  gender String
-  village String
-  gewog String
-  dzongkhag String
-  martialStatus String
-  nationality String
-  height Int
-  weight Int
-  complexion String
-  hairColor String
-  eyeColor String
-  crimes String
-  sentence Int
-  startdate DateTime
-  enddate DateTime
-  prison String
-  cell String
+model inmate {
+  name           String
+  pid            String   @id @default(uuid())
+  cid            String
+  dob            DateTime
+  gender         String
+  village        String
+  gewog          String
+  dzongkhag      String
+  martial_status String
+  nationality    String
+  height         Int
+  weight         Int
+  complexion     String
+  hair_color     String
+  eye_color      String
+  crimes         String
+  sentence       Int
+  start_date     DateTime
+  end_date       DateTime
+  prisonId       String
+  prison         Prison   @relation(fields: [prisonId], references: [prisonId])
+  cell           String
+  visitor        visitor[]
 }
 
 model visitor {
-  name String
-  visitNo String @id @default(uuid())
-  pname String
-  cid String
-  contact String
-  date DateTime @default(now())
+  vno         String   @id @default(uuid())
+  date        DateTime @default(now())
+  name        String
+  inmate_name String
+  cid         String
+  contact     String
+  pid         String
+  inmate      inmate   @relation(fields: [pid], references: [pid])
+}
+
+model Prison {
+  prisonId String   @id @default(uuid())
+  location String
+  name     String
+  inmate   inmate[]
 }

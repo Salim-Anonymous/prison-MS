@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const UserProfileOptionsMenu = () => {
   const [menuVisible, setMenuVisible] = useState(false);
   return (
-    <div className="relative right-4 lg:left-10 xl:top-4">
+    <div className="">
       <button
         className="flex flex-row items-center justify-center px-8 py-2 text-3xl font-medium text-[#00437A] rounded-lg xl:border xl:border-[#00437A] xl:p-1 lg:px-1 lg:py-0 md:px-2 md:py-1 hover:outline outline-1 outline-blue-800 hover:bg-blue-300 hover:cursor-pointer"
         onClick={() => setMenuVisible(!menuVisible)}

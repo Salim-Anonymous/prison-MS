@@ -54,7 +54,7 @@ export default function InmateHome({ setShowResults }) {
             />
           </div>
           <button
-            className="text-white bg-[#00437A] hover:bg-blue-700 p-2 mt-8 w-40 rounded-lg"
+            className="text-white bg-[#00437A] hover:bg-blue-700 p-2 mt-8 w-40"
             onClick={() => {
               setShowResults(true);
             }}
@@ -63,7 +63,7 @@ export default function InmateHome({ setShowResults }) {
           </button>
           <p className="mt-4 mb-4 font-medium text-[#00437A]">OR</p>
           <button
-            className="text-white bg-[#00437A] hover:bg-blue-700 p-2 w-40 mb-8 rounded-lg"
+            className="text-white bg-[#00437A] hover:bg-blue-700 p-2 w-40 mb-8"
             onClick={() => {
               navigate("/inmate-details/add-new-inmate");
             }}

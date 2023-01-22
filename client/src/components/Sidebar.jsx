@@ -1,44 +1,43 @@
 import React from 'react';
-import { ArticleOutlined, DashboardOutlined, Diversity2Outlined, DocumentScannerOutlined, QueryStatsOutlined, RecentActorsOutlined, SecurityOutlined, TransferWithinAStationOutlined } from "@mui/icons-material"
 import { Link, NavLink } from 'react-router-dom';
+import { MdDashboard, MdPeopleOutline } from 'react-icons/md'
+import { GoLaw } from 'react-icons/go'
+import {GiPrisoner} from 'react-icons/gi'
+import { TbPrison } from 'react-icons/tb'
+import { BiStats } from 'react-icons/bi'
 
 const links = [
     {
         name: 'Dashboard',
         path: '/pms',
-        icon: <DashboardOutlined />
+        icon: <MdDashboard size={32}  />
       
     },
     {
         name: 'Prison Act 2009',
         path: '/prison-act-2009',
-        icon: <ArticleOutlined />
+        icon: <GoLaw size={32}/>
       
     },
     {
         name: 'Inmate Details',
         path: '/inmate-details',
-        icon: <RecentActorsOutlined />
+        icon: <GiPrisoner size={32} />
     },
     {
         name: 'Prison Details',
         path: '/prison-details',
-        icon: <SecurityOutlined />
+        icon: <TbPrison size={32} />
     },
     {
         name: 'Statistics',
         path: '/statistics',
-        icon: <QueryStatsOutlined />
+        icon: <BiStats size={32} />
     },
     {
         name: 'Visitor Details',
         path: '/visitor-list',
-        icon: <TransferWithinAStationOutlined />
-    },
-    {
-        name: 'User List',
-        path: '/user-list',
-        icon: <Diversity2Outlined />
+        icon: <MdPeopleOutline size={32}/>
     },
 ]
 
