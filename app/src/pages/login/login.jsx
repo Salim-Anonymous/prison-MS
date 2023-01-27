@@ -1,12 +1,11 @@
 import React, { useContext, useEffect } from "react";
-import logo from "../assets/logo.png";
+import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext.jsx";
 
 const Login = () => {
   const navigate = useNavigate();
   const { admin, setAdmin } = useContext(AuthContext);
-
   useEffect(() => {
     if (admin.isAdmin) {
       navigate("/pms");
