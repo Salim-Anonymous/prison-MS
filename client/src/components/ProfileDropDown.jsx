@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 const UserProfileOptionsMenu = () => {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -9,8 +9,8 @@ const UserProfileOptionsMenu = () => {
         onClick={() => setMenuVisible(!menuVisible)}
       >
         <img
-          className="w-32 h-32 rounded-full md:h-16 md:w-16 lg:h-12 lg:w-12 xl:w-8 xl:h-8"
-          src="https://avatars.githubusercontent.com/u/73750430?s=40&v=4"          alt="Your avatar"
+            className="w-28 h-28 rounded-full"
+            src="https://avatars.githubusercontent.com/u/73750430?s=40&v=4" alt="Your avatar"
         />
         <div className="invisible w-0 h-0 lg:visible lg:w-64 lg:h-16 xl:h-8">
           <div className="flex flex-row items-center justify-center px-2 py-5 xl:py-2">
