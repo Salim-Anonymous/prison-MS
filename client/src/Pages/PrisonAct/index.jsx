@@ -15,7 +15,7 @@ const PrisonAct = () => {
           Prison Act Of Bhutan,2009
         </h1>
         <button
-          className="bg-[#00437A] text-white font-bold py-2 px-4 rounded-lg fixed right-0 top 0 border-none"
+          className="bg-[#00437A] text-white font-bold py-2 px-4 rounded-lg fixed right-12 top 0 border-none"
           onClick={() => {
             setChaptersForm(!chaptersForm);
           }}

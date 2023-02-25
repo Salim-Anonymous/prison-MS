@@ -10,6 +10,17 @@ const EmergencyContacts = () => {
           <input
             type="text"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full "
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  EmergencyContact: {
+                    ...prev.EmergencyContact,
+                    Name: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
         <div className="flex flex-col w-1/3 mr-6">
@@ -17,6 +28,17 @@ const EmergencyContacts = () => {
           <input
             type="number"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  EmergencyContact: {
+                    ...prev.EmergencyContact,
+                    ContactNumber: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
         <div className="flex flex-col w-1/3 ">
@@ -24,6 +46,17 @@ const EmergencyContacts = () => {
           <input
             type="text"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  EmergencyContact: {
+                    ...prev.EmergencyContact,
+                    Relation: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
       </div>

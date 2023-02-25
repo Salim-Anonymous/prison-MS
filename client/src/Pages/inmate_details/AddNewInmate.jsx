@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CaseDetails from "./components/CaseDetails";
 import IdentityParticular from "./components/IdentityParticular";
 import PhysicalDetail from "./components/PhysicalDetail";
@@ -7,6 +7,48 @@ import EmergencyContacts from "./components/EmergencyContacts";
 import UploadImage from "./components/UploadImage";
 
 const AddNewInmate = () => {
+  const [data, setdata] = useState({
+    identityParticular: {
+      FirstName: "",
+      MiddleName: "",
+      LastName: "",
+      CIDNo: "",
+      Dob: "",
+      Sex: "",
+      Village: "",
+      Gewog: "",
+      Dzongkhag: "",
+      MaritalStatus: "",
+      Nationality: "",
+    },
+    PhysicalDetail: {
+      Height: "",
+      Weight: "",
+      ColorOfHair: "",
+      ColorOfEyes: "",
+      Complexion: "",
+    },
+    CaseDetails: {
+      CrimesCommitted: "",
+      Sentence: "",
+      TimeServeStarts: "",
+      TimeServeEnds: "",
+    },
+    PrisonDetails: {
+      PrisonerId: "",
+      PrisonLocation: "",
+      PrisonCell: "",
+    },
+    EmergencyContacts: {
+      Name: "",
+      Relation: "",
+      ContactNumber: "",
+    },
+    UploadImage: {
+      Image: "",
+    },
+  });
+
   return (
     <div className="h-full w-full">
       <div className="flex justify-center items-center">
@@ -16,12 +58,12 @@ const AddNewInmate = () => {
               New Inmate Entry
             </h4>
           </div>
-          <IdentityParticular />
-          <PhysicalDetail />
-          <CaseDetails />
-          <PrisonDetails />
-          <EmergencyContacts />
-          <UploadImage />
+          <IdentityParticular setdata={setdata} />
+          <PhysicalDetail setdata={setdata} />
+          <CaseDetails setdata={setdata} />
+          <PrisonDetails setdata={setdata} />
+          <EmergencyContacts setdata={setdata} />
+          <UploadImage setdata={setdata} />
 
           <div className="flex justify-center items-center">
             <button className="bg-[#00437A] text-white font-medium text-lg p-2 mt-5 w-1/5 rounded-lg mb-4">
