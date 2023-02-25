@@ -1,6 +1,29 @@
 import React from "react";
 ``;
-const IdentityParticular = () => {
+const IdentityParticular = ({ setdata }) => {
+  //for radio button
+  function RadioButton() {
+    const [selectedValue, setSelectedValue] = useState("option1");
+    const handleChange = (event) => {
+      setSelectedValue(event.target.value);
+    };
+  }
+  //for select Dzongkhag option
+  function OptionSelected() {
+    const [selectedOption, setSelectedOption] = useState("Bumthang");
+    const handleOptionChange = (changeEvent) => {
+      setSelectedOption(changeEvent.target.value);
+    };
+  }
+  //for select Marital Status option
+  function MaritalOptionSelected() {
+    const [selectedMaritalOption, setSelectedMaritalOption] =
+      useState("Single");
+    const handleOptionChange = (changeEvent) => {
+      setSelectedMaritalOption(changeEvent.target.value);
+    };
+  }
+
   return (
     <div>
       <h4 className="text-lg font-medium p-2 mt-2">Identity Particular</h4>
@@ -10,6 +33,17 @@ const IdentityParticular = () => {
           <input
             type="text"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  IdentityParticular: {
+                    ...prev.IdentityParticular,
+                    FirstName: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
         <div className="flex flex-col w-1/3 mr-6">
@@ -17,6 +51,17 @@ const IdentityParticular = () => {
           <input
             type="text"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  IdentityParticular: {
+                    ...prev.IdentityParticular,
+                    MiddleName: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
         <div className="flex flex-col w-1/3 ">
@@ -24,6 +69,17 @@ const IdentityParticular = () => {
           <input
             type="text"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  IdentityParticular: {
+                    ...prev.IdentityParticular,
+                    LastName: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
       </div>
@@ -34,6 +90,17 @@ const IdentityParticular = () => {
           <input
             type="number"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  IdentityParticular: {
+                    ...prev.IdentityParticular,
+                    CIDNo: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
         <div className="flex flex-col w-1/3 mr-6">
@@ -41,16 +108,41 @@ const IdentityParticular = () => {
           <input
             type="date"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  IdentityParticular: {
+                    ...prev.IdentityParticular,
+                    DOB: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
         <div className="flex flex-col w-1/3 ">
           <label className="text-base font-medium">Sex</label>
           <div className="flex flex-row mt-5">
             <label>Female</label>
-            <input type="radio" name="sex" className="ml-4" />
+            <input
+              type="radio"
+              name="sex"
+              value="option1"
+              checked={selectedValue === "option1"}
+              onChange={handleChange}
+              className="ml-4"
+            />
 
             <label className="ml-4">Male</label>
-            <input type="radio" name="sex" className="ml-4" />
+            <input
+              type="radio"
+              name="sex"
+              value="option2"
+              checked={selectedValue === "option2"}
+              onChange={handleChange}
+              className="ml-4"
+            />
           </div>
         </div>
       </div>
@@ -60,6 +152,17 @@ const IdentityParticular = () => {
           <input
             type="text"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  IdentityParticular: {
+                    ...prev.IdentityParticular,
+                    Village: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
         <div className="flex flex-col w-1/3 mr-6">
@@ -67,11 +170,26 @@ const IdentityParticular = () => {
           <input
             type="text"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  IdentityParticular: {
+                    ...prev.IdentityParticular,
+                    Gewog: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
         <div className="flex flex-col w-1/3 ">
           <label className="text-base font-medium">Dzongkhag</label>
-          <select className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full">
+          <select
+            className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            value={selectedOption}
+            onChange={handleOptionChange}
+          >
             <option disabled selected>
               -- Select Dzongkhag --
             </option>
@@ -101,7 +219,11 @@ const IdentityParticular = () => {
       <div className="flex flex-row p-2 ">
         <div className="flex flex-col w-1/3 mr-6">
           <label className="text-base font-medium">Marital Status</label>
-          <select className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full">
+          <select
+            className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            value={selectedOption}
+            onChange={handleOptionChange}
+          >
             <option disabled selected>
               -- Select Marital Status --
             </option>
@@ -116,6 +238,17 @@ const IdentityParticular = () => {
           <input
             type="text"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  IdentityParticular: {
+                    ...prev.IdentityParticular,
+                    Nationality: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
         <div className="flex flex-col w-1/3 "></div>

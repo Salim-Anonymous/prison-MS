@@ -20,7 +20,7 @@ export default function InmateHome({ setShowResults }) {
         <div className="flex flex-col justify-center items-center  h-max w-1/2 shadow-2xl rounded-xl ">
           <img src={logo} alt="logo" className="h-28 mt-7 " />
           <h1 className=" text-3xl mt-7 font-medium text-[#00437A]">
-            Inmates Details
+            Inmate's Details
           </h1>
           <div className="flex flex-row mt-8">
             <button
@@ -35,15 +35,17 @@ export default function InmateHome({ setShowResults }) {
             {searchTypeVisible && (
               <div className="absolute  w-40 py-2 mt-12 bg-white rounded-md shadow-lg">
                 {searchText.map((text) => (
-                  <option className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 cursor-pointer"
+                  <option
+                    className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 cursor-pointer"
                     key={text + Math.random()}
                     onClick={() => {
-                      setSelected(text)
-                      setSearchTypeVisible(false)
-                    }}>
+                      setSelected(text);
+                      setSearchTypeVisible(false);
+                    }}
+                  >
                     {text}
-                  </option>))
-                }
+                  </option>
+                ))}
               </div>
             )}
 

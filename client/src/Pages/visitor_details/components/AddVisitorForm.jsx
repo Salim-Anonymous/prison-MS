@@ -15,23 +15,68 @@ const AddVisitorForm = (props) => {
         </div>
         <div className="flex flex-col w-full mt-5">
           <label className="font-medium">Date of Vist</label>
-          <input type="date" className="border-2 border-[#00437A] mt-3 p-1" />
+          <input
+            type="date"
+            className="border-2 border-[#00437A] mt-3 p-1"
+            onChange={(e) => {
+              props.setData({
+                ...props.data,
+                dateOfVisit: e.target.value,
+              });
+            }}
+          />
         </div>
         <div className="flex flex-col w-full mt-5">
           <label className="font-medium">Visitor's Name</label>
-          <input type="text" className="border-2 border-[#00437A] mt-3 p-1" />
+          <input
+            type="text"
+            className="border-2 border-[#00437A] mt-3 p-1"
+            onChange={(e) => {
+              props.setData({
+                ...props.data,
+                visitorName: e.target.value,
+              });
+            }}
+          />
         </div>
         <div className="flex flex-col w-full mt-5">
           <label className="font-medium">Inmate's Name</label>
-          <input type="text" className="border-2 border-[#00437A] mt-3 p-1" />
+          <input
+            type="text"
+            className="border-2 border-[#00437A] mt-3 p-1"
+            onChange={(e) => {
+              props.setData({
+                ...props.data,
+                inmateName: e.target.value,
+              });
+            }}
+          />
         </div>
         <div className="flex flex-col w-full mt-5">
           <label className="font-medium">CID NO</label>
-          <input type="text" className="border-2 border-[#00437A] mt-3 p-1" />
+          <input
+            type="text"
+            className="border-2 border-[#00437A] mt-3 p-1"
+            onChange={(e) => {
+              props.setData({
+                ...props.data,
+                visitorCid: e.target.value,
+              });
+            }}
+          />
         </div>
         <div className="flex flex-col w-full mt-5">
           <label className="font-medium">Contact No</label>
-          <input type="text" className="border-2 border-[#00437A] mt-3 p-1" />
+          <input
+            type="text"
+            className="border-2 border-[#00437A] mt-3 p-1"
+            onChange={(e) => {
+              props.setData({
+                ...props.data,
+                contactNo: e.target.value,
+              });
+            }}
+          />
         </div>
         <div className="flex flex-row w-full mt-5 justify-center">
           <button className="bg-[#00437A] text-white font-medium text-sm p-2 w-1/3 rounded-md mb-3 mr-2 outline-none hover:bg-blue-700 ">
