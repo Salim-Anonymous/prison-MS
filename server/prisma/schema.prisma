@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  name     String?
+  password String
+  role     String  @default("USER")
+}
+
+model Inmates {
+  id                          Int      @id @default(autoincrement())
+  FirstName                   String
+  MiddleName                  String?
+  LastName                    String?
+  CIDNo                       String
+  DOB                         DateTime
+  Sex                         String
+  Village                     String
+  Gewog                       String
+  Dzongkhag                   String
+  MaritalStatus               String
+  Nationality                 String
+  Height                      Decimal
+  Weight                      Decimal
+  ColorOfHair                 String
+  ColorOfEyes                 String
+  Complexion                  String
+  CrimesCommitted             String
+  Sentence                    String
+  TimeServeStarts             DateTime
+  TimeServeEnds               DateTime
+  PrisonId                    Int
+  Prison                      Prison   @relation(fields: [PrisonId], references: [id])
+  Image                       String
+  EmergencyPersonName         String
+  EmergencyPersonContact      String
+  EmergencyPersonRelationship String
+}
+
+model Prison {
+  id             Int       @id @default(autoincrement())
+  Name           String
+  PrisonLocation String
+  Inmates        Inmates[]
+}
