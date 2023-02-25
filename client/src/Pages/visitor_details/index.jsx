@@ -11,6 +11,14 @@ const VisitorList = () => {
     setVisitorFormVisible(false);
   }
 
+  const [data, setData] = useState({
+    dateOfVisit: "",
+    visitorName: "",
+    visitorCid: "",
+    inmateName: "",
+    contactNo: "",
+  });
+
   return (
     <div className="p-2">
       <div>
@@ -40,7 +48,11 @@ const VisitorList = () => {
           {visitorFormVisible && (
             <div className="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-75 ">
               <div className="relative mx-auto  rounded-lg bg-white shadow-lg py-8 px-8 w-1/3">
-                <AddVisitorForm onCancel={closeForm} onConfirm={closeForm} />
+                <AddVisitorForm
+                  onCancel={closeForm}
+                  onConfirm={closeForm}
+                  setData={setData}
+                />
               </div>
             </div>
           )}

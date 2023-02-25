@@ -1,6 +1,7 @@
 import React from "react";
 import Greetings from "../../components/Greetings";
 import { links } from "../../components/Sidebar";
+import { NavLink } from "react-router-dom";
 export default function Dashboard() {
   return (
     <div className="flex flex-col justify-between z-2">
@@ -13,15 +14,19 @@ export default function Dashboard() {
         {links.map((link, index) => {
           return (
             <div
-              key={link.name + index}
-              className="flex flex-row justify-between py-3 px-5 m-2 text-2xl text-white bg-[#00437A]  rounded-lg shadow-md hover:bg-black hover:cursor-pointer"
+              onClick={() => {
+                setPath(link.path.split("/").filter((item) => item !== "/"));
+                setSidebarOpen(false);
+              }}
+              className="flex flex-row items-center p-5 m-2 text-3xl md:p-2 md:m-1 md:text-lg lg:text-sm text-white"
             >
-              <div className="flex flex-col">
-                <p className="text-lg">{link.name}</p>
-              </div>
-              <div className="flex flex-row">
+              <NavLink
+                to={link.path}
+                className="flex flex-row items-center w-full h-full px-6 py-2 rounded-xl hover:bg-gray-700 hover:cursor-pointer bg-[#00437A]"
+              >
                 <span className="w-10">{link.icon}</span>
-              </div>
+                {link.name}
+              </NavLink>
             </div>
           );
         })}

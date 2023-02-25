@@ -20,7 +20,7 @@ export default function InmateHome({ setShowResults }) {
         <div className="flex flex-col justify-center items-center  h-max w-1/2 shadow-2xl rounded-xl ">
           <img src={logo} alt="logo" className="h-28 mt-7 " />
           <h1 className=" text-3xl mt-7 font-medium text-[#00437A]">
-            Inmates Details
+            Inmate's Details
           </h1>
           <div className="flex flex-row mt-8">
             <button

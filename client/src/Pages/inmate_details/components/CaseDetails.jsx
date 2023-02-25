@@ -10,6 +10,17 @@ const CaseDetails = () => {
           <input
             type="text"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full "
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  CaseDetails: {
+                    ...prev.CaseDetails,
+                    CrimesCommitted: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
         <div className="flex flex-col w-1/3 ">
@@ -17,6 +28,17 @@ const CaseDetails = () => {
           <input
             type="text"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  CaseDetails: {
+                    ...prev.CaseDetails,
+                    Sentence: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
       </div>
@@ -27,6 +49,17 @@ const CaseDetails = () => {
           <input
             type="date"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  CaseDetails: {
+                    ...prev.CaseDetails,
+                    TimeServeStarts: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
         <div className="flex flex-col w-1/3 mr-6">
@@ -34,6 +67,17 @@ const CaseDetails = () => {
           <input
             type="date"
             className="border-2 border-[#00437A] mt-2 focus:outline-none p-1 w-full"
+            onChange={(e) => {
+              setdata((prev) => {
+                return {
+                  ...prev,
+                  CaseDetails: {
+                    ...prev.CaseDetails,
+                    TimeServeEnds: e.target.value,
+                  },
+                };
+              });
+            }}
           />
         </div>
         <div className="flex flex-col w-1/3 "></div>
