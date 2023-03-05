@@ -1,12 +1,16 @@
-import { useState } from 'react'
+import {useState} from 'react'
+import Login from "./pages/Login";
+import Routes from "./routes";
+
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <div className="">
+    const [login, setLogin] = useState(false);
 
-    </div>
-  )
+    return (
+        <div className="">
+            {login ? <Routes/> : <Login setAdminState={setLogin}/>}
+        </div>
+    )
 }
 
 export default App

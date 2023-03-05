@@ -1,27 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 ``;
 const IdentityParticular = ({ setdata }) => {
-  //for radio button
-  function RadioButton() {
-    const [selectedValue, setSelectedValue] = useState("option1");
-    const handleChange = (event) => {
-      setSelectedValue(event.target.value);
-    };
+
+  let selectedValue = "";
+
+  function handleChange() {
+
   }
-  //for select Dzongkhag option
-  function OptionSelected() {
-    const [selectedOption, setSelectedOption] = useState("Bumthang");
-    const handleOptionChange = (changeEvent) => {
-      setSelectedOption(changeEvent.target.value);
-    };
-  }
-  //for select Marital Status option
-  function MaritalOptionSelected() {
-    const [selectedMaritalOption, setSelectedMaritalOption] =
-      useState("Single");
-    const handleOptionChange = (changeEvent) => {
-      setSelectedMaritalOption(changeEvent.target.value);
-    };
+
+  let selectedOption = "";
+
+  function handleOptionChange() {
+
   }
 
   return (

@@ -1,13 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 
-const PrisonDetails = () => {
+const PrisonDetails = ({setdata}) => {
   //for prison location option
-  function PrisonLocationOptionSelected() {
-    const [selectedLocation, setSelectedLocation] = useState("Location 1");
+  const [selectedLocation, setSelectedLocation] = useState("Location 1");
     const handleOptionChange = (changeEvent) => {
       setSelectedLocation(changeEvent.target.value);
     };
-  }
   return (
     <div>
       <h4 className="text-lg font-medium p-2 mt-5">Prison Details</h4>
