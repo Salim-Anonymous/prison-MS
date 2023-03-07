@@ -104,7 +104,23 @@ const searchInmate = async(req, res) => {
   }
 };
 
+const getInmate = async(req, res) => {
+  const { id } = req.params;
+  await prisma.inmates.findFirst({
+    where: {
+      CIDNo: id,
+    },
+  }).then((inmate) => {
+    res.status(200).json(inmate);
+  }
+  ).catch((err) => {
+    res.status(500).send({ message: err.message });
+  }
+  );
+};
+
 module.exports = {
   addInmate,
   searchInmate,
+  getInmate,
 };

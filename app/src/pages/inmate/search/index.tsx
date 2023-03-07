@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { useQuery } from "react-query";
 import Loader from "../../../components/Loader";
-import Loading from "../../../components/Loader";
 import Spinner from "../../../components/Spinner";
 import InmateCard from "../../../components/InmateResultCard";
 
@@ -82,9 +81,11 @@ const Search = () => {
             ) : data.length === 0 ? (
               <div>No Records</div>
             ) : (
-              data.map((inmate) => (
-                <InmateCard key={inmate.CIDNo} inmate={inmate} />
-              ))
+              <div className="grid grid-cols-1 gap-10">
+                {data.map((inmate) => (
+                  <InmateCard key={inmate.CIDNo} inmate={inmate} />
+                ))}
+              </div>
             )}
           </div>
         )}
