@@ -1,11 +1,19 @@
-import React, { Dispatch, SetStateAction } from "react";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { AuthContext } from "../context/authContext";
 
-const Login = ({
-  setAdminState,
-}: {
-  setAdminState: Dispatch<SetStateAction<boolean>>;
-}) => {
+const Login = () => {
+
+  const navigate = useNavigate();
+  const { login, isLoggedIn } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/dashboard");
+    }
+  }, [isLoggedIn, navigate]);
+
   return (
     <div className="w-full h-full">
       <div className="flex justify-center bg-[#00437A] h-40">
@@ -48,7 +56,7 @@ const Login = ({
             <div className="flex items-center justify-center my-5">
               <button
                 onClick={() => {
-                  setAdminState(true);
+                  login("admin-dummy-jwt")
                 }}
                 className="relative flex justify-center w-3/5 px-4 py-2 text-xl font-medium text-white bg-[#00437A] border border-transparent group rounded-xl hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >

@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import logo from "../assets/logo.png";
 import { useMediaQuery } from "react-responsive";
 import sidebarLinks from "../fixtures/sidebarLinks";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/authContext";
 
 const AppShell = ({ children }: { children: React.ReactNode }) => {
   const isTablet = useMediaQuery({ query: "(max-width: 768px)" });
@@ -10,20 +11,29 @@ const AppShell = ({ children }: { children: React.ReactNode }) => {
   const isTabletOrDesktop = useMediaQuery({ query: "(min-width: 768px)" });
   const [sidebarOpen, setSidebarOpen] = React.useState(false);
   const [menuVisible, setMenuVisible] = React.useState(false);
+  const navigate = useNavigate();
+
+  const { logout,isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
     if (isDesktop) {
       setSidebarOpen(true);
-    }
-
-    if (isTablet) {
+    }else if(isTablet) {
       setSidebarOpen(false);
     }
   }, [isDesktop, isTablet]);
 
+  useEffect(() => {
+    if(isLoggedIn){
+      navigate("/dashboard")
+    }else if(!isLoggedIn){
+      navigate("/")
+    }
+  }, [isLoggedIn])
+
   return (
     <div>
-      <div className="flex flex-row w-full">
+      {isLoggedIn ? (<><div className="flex flex-row w-full">
         {/*Main Content*/}
         <div className="fixed bottom-0 right-0 flex flex-row w-full h-screen bg-gray-200 lg:w-3/4">
           <div className="w-full h-full px-4 pt-20 pb-10 overflow-y-scroll">
@@ -34,7 +44,7 @@ const AppShell = ({ children }: { children: React.ReactNode }) => {
         {sidebarOpen && (
           <div className="fixed left-0 flex flex-row w-full mt-20 md:w-1/4">
             <div className="w-full h-screen bg-gray-900">
-              <ul className="flex flex-col items-center justify-center">
+              <ul className="flex flex-col h-auto items-center justify-between">
                 {sidebarLinks.map((link, index) => {
                   return (
                     <li
@@ -74,7 +84,7 @@ const AppShell = ({ children }: { children: React.ReactNode }) => {
             <div className="flex flex-row items-center w-full justify-evenly">
               <div className="">
                 <button
-                  className="flex flex-row items-center justify-center h-12 px-4 py-2 text-lg font-medium rounded-lg border border-[#002002] focus:outline-none"
+                  className="flex flex-row items-center justify-center h-12 px-4 py-2 text-lg font-medium rounded-full border border-[#002002] focus:outline-none"
                   onClick={() => setMenuVisible(!menuVisible)}
                 >
                   <img
@@ -104,8 +114,10 @@ const AppShell = ({ children }: { children: React.ReactNode }) => {
                     </a>
                     <a
                       className="block px-4 py-2 font-medium text-red-500 lg:text-lg hover:bg-gray-100"
-                      href="#"
-                      onClick={() => setMenuVisible(false)}
+                      onClick={() => {
+                        setMenuVisible(false)
+                        logout()
+                      }}
                     >
                       Log Out
                     </a>
@@ -154,7 +166,7 @@ const AppShell = ({ children }: { children: React.ReactNode }) => {
             </div>
           }
         </div>
-      </div>
+      </div></>):<div>{children}</div>}
     </div>
   );
 };
