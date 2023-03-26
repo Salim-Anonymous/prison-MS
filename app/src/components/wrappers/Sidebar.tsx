@@ -11,10 +11,6 @@ const Sidebar = () => {
 
     const { sidebar, toggleSidebar } = useContext(SidebarContext);
     const { isDesktop } = useContext(BreakPointsContext);
-
-    //creating a sidebar which is hidden and toggleable on mobile and tablets
-    // and animates when toggled and is always visible in desktop
-
     return (
         <>
             {/*Sidebar animate*/}
