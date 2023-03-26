@@ -1,23 +1,20 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages'
-import Login from "./pages/Login";
+import Login from "./components/Login";
 import Dashboard from "./pages/dashboard";
 import InmateHome from "./pages/inmate";
-import AppShell from './components/AppShell';
+import AppShell from './components/wrappers/AppShell';
 
 function App() {
 
     return <BrowserRouter>
-        <main>
             <AppShell>
                 <Routes>
                     <Route path="/" element={<Home/>} />
-                    <Route path="/login" element={<Login/>} />
                     <Route path="/dashboard" element={<Dashboard/>} />
-                    <Route path="/inmate" element={<InmateHome/>} />
+                    <Route path="/inmates" element={<InmateHome/>} />
                 </Routes>
             </AppShell>
-        </main>
     </BrowserRouter>
 }
 

@@ -2,44 +2,51 @@ import { useContext } from "react";
 import { useNavigate } from "react-router";
 import { AuthContext } from "../context/authContext";
 import logo from "../assets/logo.png";
+import Modal from "../components/common/Modal";
+import { useModalOpen } from "../hooks/modalOpen";
+import Login from "../components/Login";
+import { BiLogInCircle } from "react-icons/bi";
 
 const Home = () => {
 
     const {isLoggedIn} = useContext(AuthContext);
     const navigate = useNavigate();
+    const {openModal,closeModal,modal,toggleModal} = useModalOpen();
 
     return (
-        <div className="bg-blue-900 w-full h-screen">
-            {isLoggedIn ? <View isLoggedIn message="Welcome, Go to" onClick={()=>{
-                navigate("/dashboard")
-            }}/>
-            : <View isLoggedIn message="Welcome, login to continue" onClick={()=>{
-                navigate("/login")
-            }}/>}
+        <div
+         className="bg-blue-900 w-full h-screen"
+        >
+            <div className="flex flex-col items-center justify-center h-full">
+                <img
+                    src={logo}
+                    alt="logo"
+                    className="w-32 h-32"
+                />
+                <p className="text-2xl text-white">
+                    Prison Management System
+                </p>
+                <button
+                    onClick={toggleModal}
+                    className="px-3 py-2 mt-10 text-lg font-medium text-white bg-[#111d27] rounded-md hover:bg-blue-700"
+                >
+                    <span className="text-white text-2xl">
+                        <BiLogInCircle className="mr-2 inline"/>
+                        Login
+                    </span>
+                        
+                </button>
+
+            </div>
+            <Modal open={modal} closeModal={closeModal}>
+                <Login
+                    closeModal={closeModal}
+                />
+            </Modal>
         </div>
     )
 }
 
-const View = ({message,onClick, isLoggedIn}: {message:string,onClick:()=>void,isLoggedIn:boolean}) => {
-    return (
-        <div className="flex flex-col h-full items-center justify-center">
-            <img
-            className="w-32 h-32 mb-12"
-            src={logo} alt="logo"/>
-            <span className="text-white font-bold text-3xl text-center">{message}</span>
-            <button 
-            className="bg-black text-white px-8 py-3 rounded-md mt-4 mb-32"
-            onClick={onClick}>
-                <span>
-                    Go to
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
 
-                </span>
-                {!isLoggedIn?"dashboard":"login"}</button>
-        </div>
-    )
-}
 
 export default Home

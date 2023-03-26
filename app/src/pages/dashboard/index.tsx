@@ -9,7 +9,7 @@ const Dashboard = () => {
                 <p className="text-2xl">Welcome, {name}</p>
             </div>
             <div className="px-1 py-5 rounded-lg shadow-md">
-                <img className="w-full" src="public/police.jpg" alt="police"/>
+                <img className="w-full" src="/police.jpg" alt="police"/>
             </div>
             {/* grid the following links */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

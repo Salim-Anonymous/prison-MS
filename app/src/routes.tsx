@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AppShell from "./components/AppShell";
+import AppShell from "./components/wrappers/AppShell";
 import Dashboard from "./pages/dashboard";
-import InmateHome from "./pages/inmate";
+import InmateHome from "./pages/inmate/index2";
 import Search from "./pages/inmate/search";
 import InmateViewPage from "./pages/inmate/view";
 import AddNewInmatePage from "./pages/inmate/add";

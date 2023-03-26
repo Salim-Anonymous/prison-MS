@@ -1,23 +1,21 @@
-import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { FaWindowClose } from "react-icons/fa";
 import logo from "../assets/logo.png";
 import { AuthContext } from "../context/authContext";
 
-const Login = () => {
+const Login = ({closeModal}:{closeModal:()=>void}) => {
 
-  const navigate = useNavigate();
-  const { login, isLoggedIn } = useContext(AuthContext);
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate("/dashboard");
-    }
-  }, [isLoggedIn, navigate]);
+  const { login } = useContext(AuthContext);
 
   return (
-    <div className="w-full h-full">
-      <div className="flex justify-center bg-[#00437A] h-40">
-        <div className="z-0 flex flex-col items-center w-4/5 py-10 mt-10 shadow-2xl md:w-3/5 lg:w-1/3 bg-gray-50 h-max rounded-xl">
+        <div className="flex flex-col items-center w-full py-10">
+          <button
+            className="absolute top-0 right-0 p-4"
+            onClick={closeModal}
+          >
+            <FaWindowClose className="text-2xl text-[#00437A]"/>
+          </button>
+
           <img src={logo} alt="logo" className="h-32" />
           <p className="my-4 text-sm text-[#00437A]">
             Prison Management System
@@ -68,8 +66,6 @@ const Login = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   );
 };
 
