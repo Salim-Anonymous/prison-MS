@@ -1,6 +1,6 @@
 import React from "react";
 
-const EmergencyContacts = () => {
+const EmergencyContacts = ({setdata}) => {
   return (
     <div>
       <h4 className="text-lg font-medium p-2 mt-5">Emergency Contact</h4>

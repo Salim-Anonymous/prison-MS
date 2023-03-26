@@ -1,6 +1,6 @@
 import React from "react";
 
-const UploadImage = () => {
+const UploadImage = ({setdata}) => {
   return (
     <div>
       <h4 className="text-lg font-medium p-2 mt-5">Upload Image</h4>
